@@ -61,9 +61,9 @@ hr.star-primary {
     background-color: #fff; }
 
 .img-headshot {
-  height: 250px;
+  height: 300px;
   clip-path: circle(95px at center 100px);
-  -webkit-clip-path: circle(95px at center 100px);
+  -webkit-clip-path: circle(100px at center 100px);
   -moz-clip-path: circle(95px at center 100px); }
 
 .img-centered {
