@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Presentations on @VincentTatan</title>
+    <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/</link>
+    <description>Recent content in Presentations on @VincentTatan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Nov 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quick and Dirty Data Preprocessing Toolbox</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/data-preprocessing/</link>
+      <pubDate>Sat, 28 Nov 2020 10:58:08 -0400</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/data-preprocessing/</guid>
+      <description>Introduction Data scientists spend most of their time preparing data.
+According to CrowdFlower 2016 survey, data scientists are known for spending huge time on data preparation.
+Data preprocessing has become the necessary skill that every data scientist and engineer needs to have.
+Why do we need Data Preprocessing? Data needs to be cleaned and chopped.
+You need to detect for outliers, replace missing values, transform normalized values, encode categorical values before deciding to deploy a machine learning solution.</description>
+    </item>
+    
+    <item>
+      <title>Understanding CNN (Convolutional Neural Network)</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/cnn/</link>
+      <pubDate>Fri, 20 Nov 2020 10:58:08 -0400</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/cnn/</guid>
+      <description>Introduction Imagine Google Photos: for all of the pictures you have, how do you label those by objects. Do you want to tag them one by one? Is it possible to do a search on your latest Chicken Maryland snapshots? Enter CNN!
+Understanding image classification Our brains are the master at determining objects quickly. When you enter a grocery store, you can separate bananas from other goods such as shoes. My 2 year old niece knew how to differentiate cats and dogs.</description>
+    </item>
+    
+  </channel>
+</rss>

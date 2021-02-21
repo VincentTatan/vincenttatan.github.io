@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Value Investing Dashboard with Python Beautiful Soup and Dash Python | @VincentTatan</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="An Overview of Web Scraping with a Quick Dash Visualization for Value Investing">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://vincenttatan.github.io/Vincent_Portfolio_Website/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Value Investing Dashboard with Python Beautiful Soup and Dash Python" />
+<meta property="og:description" content="An Overview of Web Scraping with a Quick Dash Visualization for Value Investing" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/value-investing-dashboard-with-python-beautiful-soup-and-dash-python-43002f6a97ca/" />
+<meta property="article:published_time" content="2019-05-22T00:42:36+00:00" />
+<meta property="article:modified_time" content="2019-05-22T00:42:36+00:00" />
+<meta itemprop="name" content="Value Investing Dashboard with Python Beautiful Soup and Dash Python">
+<meta itemprop="description" content="An Overview of Web Scraping with a Quick Dash Visualization for Value Investing">
+<meta itemprop="datePublished" content="2019-05-22T00:42:36+00:00" />
+<meta itemprop="dateModified" content="2019-05-22T00:42:36+00:00" />
+<meta itemprop="wordCount" content="2959">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Value Investing Dashboard with Python Beautiful Soup and Dash Python"/>
+<meta name="twitter:description" content="An Overview of Web Scraping with a Quick Dash Visualization for Value Investing"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://vincenttatan.github.io/Vincent_Portfolio_Website/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        @VincentTatan
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://vincenttatan.github.io/Vincent_Portfolio_Website/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://vincenttatan.github.io/Vincent_Portfolio_Website/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://vincenttatan.github.io/Vincent_Portfolio_Website/presentations/" title="Presentations page">
+              Presentations
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+<a href="https://twitter.com/VincentTatan" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://www.youtube.com/user/vincelance1" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.linkedin.com/in/vincenttatan/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/VincentTatan" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://medium.com/@vincentkernn" target="_blank" class="link-transition mastodon link dib z-999 pt3 pt0-l mr1" title="Mastodon link" rel="noopener" aria-label="follow on Mastodon——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 230 230;" version="1.1" viewBox="0 0 230 230" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M211.80683 139.0875c-3.1825 16.36625-28.4925 34.2775-57.5625 37.74875-15.16 1.80875-30.0825 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.3925 27.9425 21.115.7225 39.91625-5.20625 39.91625-5.20625l.86875 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23183 213.82 1.40558 165.31125.20808 116.09125c-.36375-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67058 3.45375 78.20308.2425 107.86433 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.97625 14.7525 32.97625 65.0825 0 0 .4125 37.13375-4.6 62.915" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+<path d="M65.68743 96.45938c0 9.01375-7.3075 16.32125-16.3225 16.32125-9.01375 0-16.32-7.3075-16.32-16.32125 0-9.01375 7.30625-16.3225 16.32-16.3225 9.015 0 16.3225 7.30875 16.3225 16.3225M124.52893 96.45938c0 9.01375-7.30875 16.32125-16.3225 16.32125-9.01375 0-16.32125-7.3075-16.32125-16.32125 0-9.01375 7.3075-16.3225 16.32125-16.3225 9.01375 0 16.3225 7.30875 16.3225 16.3225M183.36933 96.45938c0 9.01375-7.3075 16.32125-16.32125 16.32125-9.01375 0-16.32125-7.3075-16.32125-16.32125 0-9.01375 7.3075-16.3225 16.32125-16.3225 9.01375 0 16.32125 7.30875 16.32125 16.3225" fill="#fff"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOG
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/value-investing-dashboard-with-python-beautiful-soup-and-dash-python-43002f6a97ca/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/value-investing-dashboard-with-python-beautiful-soup-and-dash-python-43002f6a97ca/&amp;text=Value%20Investing%20Dashboard%20with%20Python%20Beautiful%20Soup%20and%20Dash%20Python" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/value-investing-dashboard-with-python-beautiful-soup-and-dash-python-43002f6a97ca/&amp;title=Value%20Investing%20Dashboard%20with%20Python%20Beautiful%20Soup%20and%20Dash%20Python" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Value Investing Dashboard with Python Beautiful Soup and Dash Python</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-05-22T00:42:36Z">May 22, 2019</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><img src="img%5C1__tru28Q__WyM0SFPb__AF__fgA.png" alt=""></p>
+<h3 id="problem-statement">Problem Statement</h3>
+<blockquote>
+<p>“So I usually searched the stocks on the trading website like SGX or Yahoo Finance, and copy pasted the relevant dataset one by one into my Excelsheet”</p>
+</blockquote>
+<blockquote>
+<p>“There should be a quick access to the most relevant stocks information for me to make buy/sell decisions”</p>
+</blockquote>
+<p>I still remembered on how my friend boasted on his hard earned excelsheet of different stocks ratios that he copy pasted from SGX (Singapore Stocks Exchange). Out of sheer determination, he duplicated the data one by one, juggling through hundreds of views and clicks to retrieve stocks information and dumped to excelsheet where he kept all of the formulas manually.</p>
+<p>The whole process seems comical as there were lots of manual scrolls and clicks to extract seemingly large number to make buy/sell decisions. This problem inspired me to build my own tool to automate the extraction and process relevant financial ratios quickly.</p>
+<p><strong>Disclaimer: This disclaimer informs readers that the views, thoughts, and opinions expressed in the text belong solely to the author, and not necessarily to the author’s employer, organization, committee or other group or individual</strong>. <strong>References are picked up from the list and any similarities with other works are purely coincidental</strong></p>
+<p><strong>This article was made purely as the author’s side project and in no way driven by any other hidden agenda.</strong></p>
+<h3 id="solution-web-scraping-and-dashboard-visualization">Solution: Web Scraping and Dashboard Visualization</h3>
+<p>In this project, I would like to present to you a dashboard that you could use to quickly gain important financial feedback. Users only need to input the stocks ticker (such as GOOG or MSFT), and the application will handle all of the necessary critical ratios and calculations of Future Price. Once the information is retrieved from MarketWatch, the application will crunch the number into a predefined subset of values. The end result will showcase whether the users should buy/sell certain stocks depending on user defined marginal value and market price</p>
+<p>This application aims to remove the needs of users to even access stocks market website such as SGX, Yahoo/Google Finance, they could use our application as an one stop for all critical stocks information, basic analysis and warning signs for users to learn.</p>
+<p>Following are the application demo and notice how the screens will update based on user inputs stock ticker:</p>
+<p><img src="img%5C1__hL38HGXT1CTFczqKsLF0MQ.gif" alt=""></p>
+<h4 id="update-27thjune">Update: 27th June</h4>
+<p>I have cleaned up and deployed the application. Please try it out here!</p>
+<p><a href="https://value-investing.herokuapp.com" title="https://value-investing.herokuapp.com"><strong>Dash</strong><br>
+_Edit description_value-investing.herokuapp.com</a><a href="https://value-investing.herokuapp.com"></a></p>
+<h3 id="purpose-and-githubcode">Purpose and Github Code</h3>
+<p>The purpose for this Proof Of Concepts (POC) was created as a part of investments side project that the I am currently managing. Thinking to invest not long after my graduation, I was inspired by <a href="http://valueinvesting-sg.com/ebook/GoneFishingWithBuffett.pdf">Sean Seah Book — Gone Fishing with (Warren Buffett)</a>. This book had inspired me to create my own tool for value investing. The goal of this application is to help you retrieve and display the right financial insights quickly about a certain company ticker.</p>
+<p>In the POC, I used Beautiful Soup as the Web Scraping Tool, Pandas data-reader API to get the financial stocks price, and finally Python with Flask/Dask for Web Application Framework. The Github Code is located below.</p>
+<p><a href="https://github.com/VincentTatan/ValueInvesting" title="https://github.com/VincentTatan/ValueInvesting"><strong>VincentTatan/ValueInvesting</strong><br>
+_For value investing dashboard. Contribute to VincentTatan/ValueInvesting development by creating an account on GitHub._github.com</a><a href="https://github.com/VincentTatan/ValueInvesting"></a></p>
+<p>Feel free to clone the repo and contribute whenever you have time.</p>
+<h3 id="the-scope-ofproject">The Scope of Project</h3>
+<p>There are 5 processes that I would like to highlight for this application:</p>
+<p><img src="img%5C1__qLL5slmVV6fWszaOXdkPKw.png" alt="">
+undefined<img src="img%5C1__pgvsAjkhO8UBC8nwe3oHVA.png" alt=""></p>
+<h3 id="let-us-try-to-break-it-down-one-byone">Let us try to break it down one by one</h3>
+<h3 id="stocks-inputscraping">Stocks Input Scraping</h3>
+<p>In this list, we are going to extract lists of the stocks with their tickers, e.g: Google (GOOG) or Microsoft (MSFT). We are going to extract these information from 3 sources:</p>
+<h4 id="getting-sp500-stocks-info-from-wikipedia"><strong>Getting SP500 stocks info from wikipedia</strong></h4>
+<blockquote>
+<p>The <strong>S&amp;P 500</strong> stock market index, maintained by <a href="https://en.wikipedia.org/wiki/S%26P_Dow_Jones_Indices" title="S&amp;P Dow Jones Indices">S&amp;P Dow Jones Indices</a>, comprises <strong>505</strong> <a href="https://en.wikipedia.org/wiki/Common_stock" title="Common stock">common stocks</a> issued by <strong>500</strong> <a href="https://en.wikipedia.org/wiki/Market_capitalization" title="Market capitalization">large-cap</a> companies and traded on American stock exchanges (including the 30 companies that comprise the <a href="https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average" title="Dow Jones Industrial Average">Dow Jones Industrial Average</a>), and covers about 80 percent of the American equity market by capitalization. — Wikipedia</p>
+</blockquote>
+<p>To extract that, we will use the link to the stocks indices.</p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies" title="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"><strong>List of S&amp;P 500 companies - Wikipedia</strong><br>
+_The S&amp;P 500 stock market index, maintained by S&amp;P Dow Jones Indices, comprises 505 common stocks issued by 500…_en.wikipedia.org</a><a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"></a></p>
+<p><img src="img%5C1__7rCWO3y2c6DaLsUQtaCqNw.png" alt=""></p>
+<p>You can extract this table using web scraping library such as Beautiful Soup 4. Feel free to refer the article here.</p>
+<p><a href="https://www.pythonforbeginners.com/beautifulsoup/beautifulsoup-4-python" title="https://www.pythonforbeginners.com/beautifulsoup/beautifulsoup-4-python"><strong>Beautiful Soup 4 Python</strong><br>
+_Overview This article is an introduction to BeautifulSoup 4 in Python. If you want to know more I recommend you &hellip;_www.pythonforbeginners.com</a><a href="https://www.pythonforbeginners.com/beautifulsoup/beautifulsoup-4-python"></a></p>
+<p>First we will create the pass the URL Link onto Beautiful Soup. This will extract some of the values as a soup</p>
+<p>import requests</p>
+<p>resp = requests.get(&lsquo;<a href="http://en.wikipedia.org/wiki/List">http://en.wikipedia.org/wiki/List</a>_of_S%26P_500_companies&rsquo;)<br>
+soup = BeautifulSoup(resp.text, &lsquo;lxml&rsquo;)</p>
+<p>This soup object will hold HTML Text which you could extract by running the following command.</p>
+<p>for row in table.findAll(&lsquo;tr&rsquo;)[1:]:<br>
+ticker = row.findAll(&lsquo;td&rsquo;)[0].text<br>
+security = row.findAll(&lsquo;td&rsquo;)[1].text<br>
+gics_industry = row.findAll(&lsquo;td&rsquo;)[3].text<br>
+gics_sub_industry = row.findAll(&lsquo;td&rsquo;)[4].text</p>
+<pre><code>    tickers.append(ticker.lower().replace(r&quot;\\n&quot;, &quot; &quot;))  
+    securities.append(security)  
+    gics\_industries.append(gics\_industry.lower())  
+    gics\_sub\_industries.append(gics\_sub\_industry.lower())
+</code></pre>
+<p>This command will find the table then iterate every row to retrieve the data for each column. The extractions will be carried forward into a list, which is later dumped into a dictionary list of key and value pair.</p>
+<p># Create a list of dict based on tickers and labels<br>
+dictlist = []<br>
+for index, row in stocks_info_df.iterrows():<br>
+dictlist.append({&lsquo;value&rsquo;:row[&lsquo;tickers&rsquo;], &lsquo;label&rsquo;:row[&lsquo;labels&rsquo;]})<br>
+return dictlist</p>
+<h4 id="getting-russell-stocksinfo"><strong>Getting Russell stocks info</strong></h4>
+<p>Getting the Russell Stocks info is even more straightforward as the data is openly available. Feel free to refer to <a href="https://www.elitetrader.com/et/threads/russel-3k-company-list-in-csv-free.304983/">this for existing</a> Russel Stocks Repository. We can just read it using pandas readcsv method.</p>
+<p>dfrussel=pd.read_csv(&lsquo;C:/Users/vintatan/Desktop/Investment/RussellandData.csv&rsquo;,index_col=&lsquo;Symbol&rsquo;)</p>
+<h4 id="adding-own-list-of-stocksinfo"><strong>Adding own list of stocks info</strong></h4>
+<p>For any of the tickers not existing in either SP200 or Russell List, we could manually passed our stocks value and label into a dictionary list.</p>
+<p># self append<br>
+def save_self_stocks_info():<br>
+print(&ldquo;Adding own list of stocks info&rdquo;)</p>
+<pre><code>dictlist = \[\]  
+
+dictlist.append({'value':'sq', 'label':'SQ Square SA'})  
+dictlist.append({'value':'kbsty', 'label':'Kobe steel'})  
+dictlist.append({'value':'NESN', 'label':'Nestle'})  
+dictlist.append({'value':'BN', 'label':'Danone'})
+</code></pre>
+<h4 id="conclusion">Conclusion</h4>
+<p>From these methods of extracting 3 different sources, you might realize that I am passing a list of dictionary object. This is due to the formatting required for Dash Combo Box Inputs. Please refer to Dash Visualization tool here</p>
+<p>dcc.Dropdown(<br>
+id=&lsquo;my-dropdown&rsquo;,<br>
+options=save_sp500_stocks_info()+save_self_stocks_info(),<br>
+value=&lsquo;coke&rsquo;<br>
+),</p>
+<p><img src="img%5C1__iDGWxghWUb1N2ubX4MfFhA.png" alt=""></p>
+<h3 id="yahoo-stocks-price-scraping-with-pandas-datareader">Yahoo Stocks Price Scraping with Pandas DataReader</h3>
+<p>We will use Pandas-data Reader to generate the stocks price based on Yahoo. In here, we passed 4 parameters into the web.DataReader</p>
+<blockquote>
+<p>The ticker, in this case it will put MSFT, GOOG, etc</p>
+</blockquote>
+<blockquote>
+<p>The data_source which is Yahoo</p>
+</blockquote>
+<blockquote>
+<p>The start time, which is from January 1st 2013.</p>
+</blockquote>
+<blockquote>
+<p>The end time, which is now.</p>
+</blockquote>
+<p>Once we have generated stockpricedf, we returned a dictionary with key ‘data’ and return the date as the x axis while the closing price as the y axis.</p>
+<pre><code>stockpricedf = web.DataReader(  
+    selected\_dropdown\_value.strip(), data\_source='yahoo',  
+    start=dt(2013, 1, 1), end=dt.now())
+</code></pre>
+<p><img src="img%5C1__W9O1GuhHKfnECyVrxx__zMw.png" alt=""></p>
+<p>This will be translated into the price chart as you see here</p>
+<pre><code>return {  
+    'data': \[{  
+        'x': stockpricedf.index,  
+        'y': stockpricedf.Close  
+    }\]  
+}
+</code></pre>
+<p><img src="img%5C1__DckmahNC73R1Y2LgRO72Jw.png" alt=""></p>
+<h3 id="balance-sheet-and-income-statement-extractions-with-beautiful-soup">Balance Sheet and Income Statement Extractions with Beautiful Soup</h3>
+<p>In this subtopic, we will try to extract the important ratios and display them as Dash Table. The followings are the ratio we are interested in:</p>
+<blockquote>
+<p><a href="https://www.investopedia.com/terms/e/eps.asp">EPS (Earning Per Share)</a> is the portion of a company’s profit allocated to each share of common stock</p>
+</blockquote>
+<blockquote>
+<p>ROE (Return of Equity) is a measure of financial performance calculated by dividing <a href="https://www.investopedia.com/terms/n/netincome.asp">net income</a> by <a href="https://www.investopedia.com/terms/s/shareholdersequity.asp">shareholders’ equity</a></p>
+</blockquote>
+<blockquote>
+<p>ROA (Return of Assets) is an indicator of how profitable a company is relative to its total assets</p>
+</blockquote>
+<blockquote>
+<p>Long Term Debt would include company bond issues or long-term leases that have been capitalized on a firm’s <a href="https://www.investopedia.com/terms/b/balancesheet.asp">balance sheet</a></p>
+</blockquote>
+<blockquote>
+<p>Total Income would symbolize the income that the company made</p>
+</blockquote>
+<blockquote>
+<p>Debt to Equity is used to evaluate a company’s financial leverage</p>
+</blockquote>
+<blockquote>
+<p>Interest Coverage Ratio is used to determine how easily a company can pay their interest expenses on outstanding debt</p>
+</blockquote>
+<p>These definitions come from Investopedia. Please find further details below</p>
+<p><a href="https://www.investopedia.com/" title="https://www.investopedia.com/"><strong>Sharper Insight. Smarter Investing.</strong><br>
+_Stock Market Basics Want to know how the stock market really works? This guide will teach you the basics. Best Brokers…_www.investopedia.com</a><a href="https://www.investopedia.com/"></a></p>
+<p>We will use Market Watch Balance Sheet and Income Statements links and assign them to variables. Note here that the ticker refers to the company’s ticker. Therefore the link to Apple Income statement is <a href="https://www.marketwatch.com/investing/stock/%27+ticker+%27/financials">https://www.marketwatch.com/investing/stock/AAPL/financials</a> and the and to Apple Balance Sheet is <a href="https://www.marketwatch.com/investing/stock/%27+ticker+%27/financials">https://www.marketwatch.com/investing/stock/AAPL/financials</a>/balance-sheet</p>
+<p>urlfinancials = &lsquo;<a href="https://www.marketwatch.com/investing/stock/'+ticker+'/financials'">https://www.marketwatch.com/investing/stock/'+ticker+'/financials'</a><br>
+urlbalancesheet = &lsquo;<a href="https://www.marketwatch.com/investing/stock/'+ticker+'/financials/balance-sheet'">https://www.marketwatch.com/investing/stock/'+ticker+'/financials/balance-sheet'</a></p>
+<p>text_soup_financials = BeautifulSoup(requests.get(urlfinancials).text,&ldquo;lxml&rdquo;)<br>
+text_soup_balancesheet = BeautifulSoup(requests.get(urlbalancesheet).text,&ldquo;lxml&rdquo;)</p>
+<p>Similar to extracting the company tickers, we also used Beautiful Soup to identify the ratios from the financials and balance sheets url. We will extract them with by going through all of the siblings of attributes with label texts as the indicators.</p>
+<p># Income Statement<br>
+for title in titlesfinancials:<br>
+if &lsquo;EPS (Basic)&rsquo; in title.text:<br>
+epslist.append ([td.text for td in title.findNextSiblings(attrs={&lsquo;class&rsquo;: &lsquo;valueCell&rsquo;}) if td.text])<br>
+if &lsquo;Net Income&rsquo; in title.text:<br>
+netincomelist.append ([td.text for td in title.findNextSiblings(attrs={&lsquo;class&rsquo;: &lsquo;valueCell&rsquo;}) if td.text])<br>
+if &lsquo;Interest Expense&rsquo; in title.text:<br>
+interestexpenselist.append ([td.text for td in title.findNextSiblings(attrs={&lsquo;class&rsquo;: &lsquo;valueCell&rsquo;}) if td.text])<br>
+if &lsquo;EBITDA&rsquo; in title.text:<br>
+ebitdalist.append ([td.text for td in title.findNextSiblings(attrs={&lsquo;class&rsquo;: &lsquo;valueCell&rsquo;}) if td.text])</p>
+<p># Balance sheet<br>
+titlesbalancesheet = text_soup_balancesheet.findAll(&lsquo;td&rsquo;, {&lsquo;class&rsquo;: &lsquo;rowTitle&rsquo;})<br>
+equitylist=[]<br>
+for title in titlesbalancesheet:<br>
+if &lsquo;Total Shareholders\&rsquo; Equity&rsquo; in title.text:<br>
+equitylist.append( [td.text for td in title.findNextSiblings(attrs={&lsquo;class&rsquo;: &lsquo;valueCell&rsquo;}) if td.text])<br>
+if &lsquo;Long-Term Debt&rsquo; in title.text:<br>
+longtermdebtlist.append( [td.text for td in title.findNextSiblings(attrs={&lsquo;class&rsquo;: &lsquo;valueCell&rsquo;}) if td.text])</p>
+<p>We will populate the extracted values into a separate data frame.</p>
+<p>df= pd.DataFrame({&lsquo;eps&rsquo;: eps,&lsquo;epsgrowth&rsquo;: epsgrowth,&lsquo;netincome&rsquo;: netincome,&lsquo;shareholderequity&rsquo;: shareholderequity,&lsquo;roa&rsquo;:<br>
+roa,&lsquo;longtermdebt&rsquo;: longtermdebt,&lsquo;interestexpense&rsquo;: interestexpense,&lsquo;ebitda&rsquo;: ebitda},index=[2013,2014,2015,2016,2017])</p>
+<p><img src="img%5C1__dQ0lXw3BT8lL4rFQdj6dOQ.png" alt=""></p>
+<p>This dataframe will be dumped into the dash table object as below</p>
+<p><img src="img%5C1__lcvXHQGNalu2lEV3CiI3Aw.png" alt=""></p>
+<h3 id="warning-signs-list-based-on-value-investing-logic">Warning Signs List based on value investing logic</h3>
+<p>We will then create the eligibilitycheck.py to iterate through these rules and identify some possible risks given the ratios extracted.</p>
+<blockquote>
+<p>Given list of the companies, find out the feasibility to invest<br>
+Been in market minimal 10 years<br>
+Have the track records (EPS per year)<br>
+Have efficiency (ROE &gt; 15%) — Net income / shareholder equity<br>
+Determine manipulation (ROA &gt; 7%) — Net income / Total Asset<br>
+Have small long term debt (Long term debt &lt;5* total income)<br>
+Low Debt to Equity<br>
+Ability to pay interest: (Interest Coverage Ratio &gt;3) — EBIT / Interest expenses</p>
+</blockquote>
+<p>Using the generated dataframe above, we will retrieve a list of warnings</p>
+<p><img src="img%5C1__wIlcnvhV86HqeV0ng0iqTQ.png" alt=""></p>
+<h3 id="decision-machine-based-on-marginal-price-from-stockseps">Decision Machine based on Marginal Price From Stocks EPS</h3>
+<p>We will then create the last of our steps by deriving whether the users should buy from the expected Future Values and the marginal values from users’ defined parameters. Following are the steps that were implemented in futurepricing.py</p>
+<blockquote>
+<p>Decision making from each company in terms of return rate given the value investing methodology<br>
+Find EPS Annual Compounded Growth Rate<br>
+Estimate EPS 10 years from now<br>
+Estimate stock price 10 years from now (Stock Price EPS * Average PE)<br>
+Determine target by price today based on returns(discount rate 15%/20%)<br>
+Add margin of safety (Safety net 15%)<br>
+Buy if market price is lower than the marginal price<br>
+Sell if market price is higher than the marginal price</p>
+</blockquote>
+<p>From here, we will generate the following parameters derived from the logic of Sean Seah’s book.</p>
+<p>In this functionality, we will allow users inputs such as discount rate and marginal rate. Discount rate indicated predicted inflation over the period of 5 years, margin calculation rate is the toleration for error. You add on additional safety net in the case of calculation error. The more the margin calculation rate, the more risk averse you are or vice versa.</p>
+<p><img src="img%5C1__yU3jWIzfTdMuREwsgk1VIA.png" alt=""></p>
+<p>dfprice[&lsquo;peratio&rsquo;] = findMinimumEPS(stockpricedf,financialreportingdf)</p>
+<p>dfprice[&lsquo;FV&rsquo;] = dfprice[&lsquo;futureeps&rsquo;]*dfprice[&lsquo;peratio&rsquo;]</p>
+<p>dfprice[&lsquo;PV&rsquo;] = abs(np.pv(discountrate,years,0,fv=dfprice[&lsquo;FV&rsquo;]))<br>
+dfprice[&lsquo;marginprice&rsquo;] = dfprice[&lsquo;PV&rsquo;]*(1-marginrate)<br>
+dfprice[&lsquo;lastshareprice&rsquo;]=stockpricedf.Close.tail(1).values[0]</p>
+<p>dfprice[&lsquo;decision&rsquo;] = np.where((dfprice[&lsquo;lastshareprice&rsquo;]&lt;dfprice[&lsquo;marginprice&rsquo;]),&lsquo;BUY&rsquo;,&lsquo;SELL&rsquo;)</p>
+<p>This will generate data frame with the following data and decision (buy/sell)</p>
+<p><img src="img%5C1__1__6mMvouioSJECcacq2g6A.png" alt=""></p>
+<p>In this case, based on eps growth and pe ratio, you could find the future price and present price valuations. Added with discount rate and margin rate, you will get margin price. Since margin price is less than last share price, we could assume that the stocks is currently overpriced even given the tolerated error rate. Hence the <em>Sell</em> decision. The opposite also worked for the <em>Buy</em> decision</p>
+<p>A very simple logic, but a powerful one to leverage on your stocks purchases. Of course the caveat is that you should do your due diligence on the qualitative analysis before purchasing the stocks.</p>
+<h3 id="result">Result</h3>
+<p>After developing this tool, I feel the need to test it out. Therefore in 2017, I decided to buy some stocks using the screenings from this tool.</p>
+<h4 id="buying-skechers">Buying Skechers</h4>
+<p><img src="img%5C1__a7VgHf62HgvTROKAGTLHMw.png" alt=""></p>
+<p>As you could view here, the application marked Skechers as an abnormally high marginalized price. This means that given 10% discount rate assumption (from economic instability or inflation) and 50% marginal rate assumption (from degree of potential error), we still work the marginal share price to be very high — our valuated price.</p>
+<p>Further glimpse at eps growth shows the fast growing nature of Skechers from 2012–2016. However, at the same time, if you view the long term debt ratio, Skechers’ debt had reduced or stabilized. Overall, increasing revenue, high growth, and low long term debt is one of the biggest reason why I bought Skechers. Over one and half a year, I have received 34.55% stocks price increase</p>
+<h4 id="buying-qualcomm">Buying Qualcomm</h4>
+<p><img src="img%5C1__zSzRp4alZvvQeZIHH9ZXGQ.png" alt="">
+undefined</p>
+<p>In 2017, I received news of Qualcomm being in dispute with Apple. This made the stocks dropped into 44. Hence, I tried to use the tool to see if I could extract the information quickly and analyze quantitatively. After taking a quick look, I realized that Qualcomm gave me a high future value as $115 given the pe ratio and the annual growth rate. Even when I put 50% as margin rate (I am a very risk averse guy), I could see that the marginal price still fared comfortably from the present share price. As there are not much warning signs and increase in long term debt except for one year negative growth, I bought Qualcomm. Over one and half a year, I have received 62.87% stocks price increase.</p>
+<h4 id="buying-gamestop">Buying Gamestop</h4>
+<p><img src="img%5C1__1iO__SfEXW4hBy__cJfeukSQ.png" alt="">
+undefined</p>
+<p>Gamestop is my newest investment I made with the value investing dashboard. It is considered a cigarette butt investing as this is a stocks in declining growth that no investors want — hence, cigarette butt (get it?! Haha). At the Warning Flags, three warnings were present: that there are negative growth, high long term debt, and small ROE. However, if you take a look at the decision at the bottom: the application remarked it as <em>Buy</em>. The reason why is that although the stocks is dropping in lieu with the negative growth, the market valuate the stocks too low: people are too afraid to invest in GameStop. The rate of declining business is lower than the rate of declining market’s sentiment. As you could see, even when I put margin rate for 50%, I still saw the margin price ($13) to be higher than the share price ($8). For that reason, I bought Gamestop expecting for investors to realize this gap, while at the same time, hoping for buyouts. Up to now, I am losing 7.58%.</p>
+<h4 id="holding-18-returns-of-portfolio">Holding 18% Returns of Portfolio</h4>
+<p>Using this application, I made it a point to first screen, purchase and hold the stocks. Currently, some of my successful purchases included: Keppel Reits DC, CSE Global Limited, Qualcomm, and Skechers. With some screened stocks such as Skechers and Qualcomm to be the high performers up to date.</p>
+<p><img src="img%5C1__GzPjBgGfCpHnYwDu8NGLKA.jpeg" alt=""></p>
+<p>As you could see, I am currently managing working portfolio that generated up to date returns of 18% after 1 and a half year of holding. If dividends are included, then the returns are estimated to be 22%. Although this is a great return after a year and not much, this is still not long enough to prove the app’s usefulness. Feel free to try it out and comment below.</p>
+<p>Furthermore, I would like to further highlight the important caveat: do your due diligence.</p>
+<blockquote>
+<p>You should still evaluate your stocks by asking about the following qualitative assessment:</p>
+</blockquote>
+<blockquote>
+<p>Advantages in business (product differentiation, branding, low price producer, high switching cost, legal barriers to entry)</p>
+</blockquote>
+<blockquote>
+<p>Ability of foolhardy management (even a fool can run)</p>
+</blockquote>
+<blockquote>
+<p>Avoid price competitive business. Understand how the business makes revenue.</p>
+</blockquote>
+<p>Lastly, I hope this application or at least my little piece of investing journey could inspire you to innovate. Feel free to refer the codes for better understanding on how I crunch the number to derive buy/sell action. Then, please feel free to fork and contribute if there are further improvements you would like to work on.</p>
+<p>Everything is up for grab for free!! Please contribute to make it the best open source value investing tool.</p>
+<h3 id="conclusion-and-futurework">Conclusion and Future Work</h3>
+<p>This project gave me the opportunities to solve a practical and relevant problem, which many of my finance friends seem to face. There are many functionalities we could add to improve the user experience, but for now, this application has successfully handled the mentioned core problem of extracting relevant financial ratios and information for preliminary stocks screening.</p>
+<p>From this project, I also learnt many of basic finance theories, which I could implement to valuate stocks. I am not an expert at finance and I bet you probably know way better than me. Therefore, feel free to improve on the solutions as you see fit. My contact detail is below if you would like to say hi or have a chill discussion :).</p>
+<h4 id="acknowledgments">Acknowledgments</h4>
+<p>I would like to thank you my fellow Accountancy and Finance friends who inspired me to build this tool. I really enjoyed learning a bunch of finance terms from them and used that to tackle real life problems that they have been encountering.</p>
+<h4 id="finally">Finally…</h4>
+<p>Whew… That’s it, about my idea which I formulated into writings. I really hope this has been a great read for you guys. With that, I hope my idea could be a source of inspiration for you to develop and innovate.</p>
+<p>Please reach out to me via my <a href="http://www.linkedin.com/in/vincenttatan/">LinkedIn</a> and subscribe to my <a href="https://www.youtube.com/user/vincelance1/videos">Youtube Channel</a></p>
+<p>Comment out below for suggestions and feedbacks.</p>
+<p>Happy coding :)</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://vincenttatan.github.io/Vincent_Portfolio_Website/" >
+    &copy;  @VincentTatan 2021 
+  </a>
+    <div>
+
+
+
+
+<a href="https://twitter.com/VincentTatan" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+<a href="https://www.youtube.com/user/vincelance1" target="_blank" class="link-transition youtube link dib z-999 pt3 pt0-l mr1" title="Youtube link" rel="noopener" aria-label="follow on Youtube——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://www.linkedin.com/in/vincenttatan/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/VincentTatan" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://medium.com/@vincentkernn" target="_blank" class="link-transition mastodon link dib z-999 pt3 pt0-l mr1" title="Mastodon link" rel="noopener" aria-label="follow on Mastodon——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 230 230;" version="1.1" viewBox="0 0 230 230" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M211.80683 139.0875c-3.1825 16.36625-28.4925 34.2775-57.5625 37.74875-15.16 1.80875-30.0825 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.3925 27.9425 21.115.7225 39.91625-5.20625 39.91625-5.20625l.86875 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23183 213.82 1.40558 165.31125.20808 116.09125c-.36375-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67058 3.45375 78.20308.2425 107.86433 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.97625 14.7525 32.97625 65.0825 0 0 .4125 37.13375-4.6 62.915" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+<path d="M65.68743 96.45938c0 9.01375-7.3075 16.32125-16.3225 16.32125-9.01375 0-16.32-7.3075-16.32-16.32125 0-9.01375 7.30625-16.3225 16.32-16.3225 9.015 0 16.3225 7.30875 16.3225 16.3225M124.52893 96.45938c0 9.01375-7.30875 16.32125-16.3225 16.32125-9.01375 0-16.32125-7.3075-16.32125-16.32125 0-9.01375 7.3075-16.3225 16.32125-16.3225 9.01375 0 16.3225 7.30875 16.3225 16.3225M183.36933 96.45938c0 9.01375-7.3075 16.32125-16.32125 16.32125-9.01375 0-16.32125-7.3075-16.32125-16.32125 0-9.01375 7.3075-16.3225 16.32125-16.3225 9.01375 0 16.32125 7.30875 16.32125 16.3225" fill="#fff"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://vincenttatan.github.io/Vincent_Portfolio_Website/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

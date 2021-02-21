@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on @VincentTatan</title>
+    <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/</link>
+    <description>Recent content in Blog on @VincentTatan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Nov 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quick and Dirty Data Preprocessing Toolbox</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/2020-11-28-data-preprocessing-toolbox/</link>
+      <pubDate>Sat, 28 Nov 2020 10:58:08 -0400</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/2020-11-28-data-preprocessing-toolbox/</guid>
+      <description>Introduction Data scientists spend most of their time preparing data.
+According to CrowdFlower 2016 survey, data scientists are known for spending huge time on data preparation.
+Data preprocessing has become the necessary skill that every data scientist and engineer needs to have.
+Why do we need Data Preprocessing? Data needs to be cleaned and chopped.
+You need to detect for outliers, replace missing values, transform normalized values, encode categorical values before deciding to deploy a machine learning solution.</description>
+    </item>
+    
+    <item>
+      <title>Understanding CNN (Convolutional Neural Network)</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/2020-05-09-understanding-cnn/</link>
+      <pubDate>Fri, 20 Nov 2020 10:58:08 -0400</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/2020-05-09-understanding-cnn/</guid>
+      <description>Understanding CNN (Convolutional Neural Network) Your first baby step to learn Deep Learning for Image Classification  Imagine Google Photos: for all of the pictures you have, how do you label those by objects. Do you want to tag them one by one? Is it possible to do a search on your latest Chicken Maryland snapshots? Enter CNN!
+ Understanding Image Classification  Image classification defines image objects and labeled these images from labeled examples.</description>
+    </item>
+    
+    <item>
+      <title>How to Build a Great Dashboard</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/how-to-build-a-great-dashboard-ee0518c3d3f7/</link>
+      <pubDate>Sat, 06 Jun 2020 15:05:55 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/how-to-build-a-great-dashboard-ee0518c3d3f7/</guid>
+      <description>My Tips to aspiring Data Scientists and Data Analysts  Getting memberships on interactive dashboards is expensive
+  I have trouble collaborating my local changes with colleagues
+  There are too many versions of dashboards, I don’t know which one to share
+ For data scientists and analysts, communicating our data and results to the non technical users is important. We need to produce and share stunning dashboards that is easy to interact with.</description>
+    </item>
+    
+    <item>
+      <title>Don’t Sleep: Building your first Drowsiness Detection System</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/2020-05-09-drowsiness-detection-system/</link>
+      <pubDate>Sat, 09 May 2020 10:58:08 -0400</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/2020-05-09-drowsiness-detection-system/</guid>
+      <description>Introduction It was a very important day, the test and project deadline were due next week but you hadn’t prepared much because of the new Halo release. Out of anxiety, you rushed to library and opened your laptop. However, as you lost your sleep leveling up your character, your mind quickly took you to dreamland. Coffee did no avail as you slept soundly in front of your laptop. Time was running short and You were desperate to stay awake.</description>
+    </item>
+    
+    <item>
+      <title>Data Analytics is hard… Here how you can excel</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/data-analytics-is-hard-here-how-you-can-excel-aa2a99d0fad0/</link>
+      <pubDate>Sun, 20 Oct 2019 15:12:36 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/data-analytics-is-hard-here-how-you-can-excel-aa2a99d0fad0/</guid>
+      <description>I really enjoyed working in data. Since my sophomore year, I already knew that I want to use technology as a way to solve real business problems. It gives me meaning to work and I hope it does for you as well.
+Every day I would squeeze every bit of my time to read and learn. I would sign up for the local Data Hackathon and organize Analytics related events to learn from industry leaders.</description>
+    </item>
+    
+    <item>
+      <title>Send Data Alert with Python SMTP</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/send-data-alert-with-python-smtp-efb9ee08077e/</link>
+      <pubDate>Mon, 05 Aug 2019 18:35:19 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/send-data-alert-with-python-smtp-efb9ee08077e/</guid>
+      <description>Definitive Guide for Data Professionals (Business Intelligence) Problem Statement: For data scientists, it is very important to communicate reports to the non technical users especially if there are some abnormality within the data. From my working experience, most analysts would send the users business reports manually — they would process the data, run some validations, and generate reports to send via Outlook/gmail. All of these take much time and leaves rooms for human errors.</description>
+    </item>
+    
+    <item>
+      <title>My Journey from a Noob to Half Ironman Triathlete</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/my-journey-from-a-noob-to-half-ironman-triathlete-de0b21662cd5/</link>
+      <pubDate>Sat, 20 Jul 2019 23:01:03 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/my-journey-from-a-noob-to-half-ironman-triathlete-de0b21662cd5/</guid>
+      <description>undefined (After barely finishing 5 km race)
+  Me: How do I run marathon?
+  My big sister: Siao!! You could barely even did the 5 km, now you wanted to do 43 km. Not possible!
+ In 2012, I was a typical unsporty geek who always avoided sports — I was always picked last for basketball during high school. I was 17 but I looked like 30. I had beer belly when I was not even old enough to drink alcohol.</description>
+    </item>
+    
+    <item>
+      <title>Automate your Python Scripts with Task Scheduler</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/automate-your-python-scripts-with-task-scheduler-661d0a40b279/</link>
+      <pubDate>Sun, 30 Jun 2019 12:51:37 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/automate-your-python-scripts-with-task-scheduler-661d0a40b279/</guid>
+      <description>Definitive Guide to Data Professionals  Running my Python Scripts every day is too troublesome.
+  I need a way to run my Python Scripts periodically and automatically
+ Imagine your manager asks you to wake up in the middle of night to run a script. This will be your biggest nightmare. You wake up prematurely, expose with the horrendous blue light, and avoid decent sleeps every midnight.
+As any data professionals, you might need to run multiple scripts to generate reports or deploy analytics pipeline.</description>
+    </item>
+    
+    <item>
+      <title>In 10 minutes: Web Scraping with Beautiful Soup and Selenium for Data Professionals</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/in-10-minutes-web-scraping-with-beautiful-soup-and-selenium-for-data-professionals-8de169d36319/</link>
+      <pubDate>Mon, 17 Jun 2019 13:50:51 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/in-10-minutes-web-scraping-with-beautiful-soup-and-selenium-for-data-professionals-8de169d36319/</guid>
+      <description>Definitive Guide to Analytics Introduction Web Scraping is a process to extract valuable information from websites and online contents. It is a free method to extract information and receive datasets for further analysis. In this era where information is practically highly related to each other, I believe that the need for Web Scraping to extract alternative data is enormous especially for me as a data professional.
+The objective for this publication is for you to understand several ways on scraping any publicly available information using quick and dirty Python Code.</description>
+    </item>
+    
+    <item>
+      <title>5 Life Lessons I wish I knew when I started Working</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/5-life-lessons-i-wish-i-knew-when-i-started-working-7873f8b1ec6/</link>
+      <pubDate>Fri, 14 Jun 2019 22:11:02 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/5-life-lessons-i-wish-i-knew-when-i-started-working-7873f8b1ec6/</guid>
+      <description>After my university graduation, I went to Visa Inc. in Singapore for my first jump into the corporate world. As a newly born technology professional, I have always been impressed by the scale of the impact and the learning opportunities that I received.
+As my career at Visa almost hit 2 years. I wrote this article to reflect and share my newly learned life values and things that I wish I knew way before.</description>
+    </item>
+    
+    <item>
+      <title>Value Investing Dashboard with Python Beautiful Soup and Dash Python</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/value-investing-dashboard-with-python-beautiful-soup-and-dash-python-43002f6a97ca/</link>
+      <pubDate>Wed, 22 May 2019 00:42:36 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/value-investing-dashboard-with-python-beautiful-soup-and-dash-python-43002f6a97ca/</guid>
+      <description>Problem Statement  “So I usually searched the stocks on the trading website like SGX or Yahoo Finance, and copy pasted the relevant dataset one by one into my Excelsheet”
+  “There should be a quick access to the most relevant stocks information for me to make buy/sell decisions”
+ I still remembered on how my friend boasted on his hard earned excelsheet of different stocks ratios that he copy pasted from SGX (Singapore Stocks Exchange).</description>
+    </item>
+    
+    <item>
+      <title>The Twitter Tale of Indonesian Election 2019 (Pemilu)</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/the-twitter-tale-of-indonesian-election-2019-pemilu-fb75cd084a32/</link>
+      <pubDate>Sun, 21 Apr 2019 05:34:24 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/the-twitter-tale-of-indonesian-election-2019-pemilu-fb75cd084a32/</guid>
+      <description>During the Indonesian presidential election, Jokowi and Prabowo have become the most talked candidates which represents the candidacy. The Indonesian Presidential Primaries were becoming news sensation. Many news and social media generated fads over who are going to win the presidential election. Now in 2019, we will try and analyse the tale of the Indonesian presidential elections through the Twitter Eyes.
+Github (Link to Jupyter Notebook) — please access for the source code:</description>
+    </item>
+    
+    <item>
+      <title>Deploying Kubernetes with ConfigMap and Secrets</title>
+      <link>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/deploying-kubernetes-with-configmap-and-secrets-5aff29077b8d/</link>
+      <pubDate>Thu, 18 Apr 2019 07:46:50 +0000</pubDate>
+      
+      <guid>https://vincenttatan.github.io/Vincent_Portfolio_Website/blog/vincentkernn/deploying-kubernetes-with-configmap-and-secrets-5aff29077b8d/</guid>
+      <description>undefined
+I would like to provide explanations for Kubernetes native configuration resources for regular and confidential data. This is created based on my experience working in Visa as a Data Engineer to launch Client Directories into Microservices, hence the picture you see above. I hope that my experience here can be a useful learning experience for you to configure your Kubernetes deployments and services quickly with Config Maps and Secrets.</description>
+    </item>
+    
+  </channel>
+</rss>
